@@ -1,0 +1,29 @@
+<div class="container mt-5 pt-5">
+  <h1 class="text-center pb-5 mt-2">Products</h1>
+  <i class="bi bi-plus-square-fill text-success" (click)="addProduct()"></i>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td><i class="bi bi-pen text-primary" (click)="editProduct()"></i></td>
+        <td><i class="bi bi-trash  text-danger" (click)="deleteProduct()"></i></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+

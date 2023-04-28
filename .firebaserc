@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mac-fast-07": {
+      "hosting": {
+        "macfastFirebase": [
+          "mac-fast-07"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mac-fast-07"
+  }
+}
