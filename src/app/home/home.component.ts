@@ -39,9 +39,11 @@ export class HomeComponent implements OnInit{
     this.router.navigate(['/editform']);
   }
 
-
-  deleteProduct(){
-    console.log('delete works !');
+  deleteProduct(id:any){
+    let okConfirm = confirm('are you sure')
+    if(okConfirm){
+      this.hero.deleteProduct(id)
+    }
   }
 
 }

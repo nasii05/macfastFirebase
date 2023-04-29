@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './interface/product';
-import { Firestore, addDoc, collection, collectionData, doc, getDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 
@@ -40,7 +40,17 @@ export class HeroService {
     }
   }
 
+  // update
+  updateProduct(id:any, product:any){
+    let docRef = doc(this.fs, "Products",id);
+    return updateDoc(docRef, product);
+  }
 
+  // delete
+  deleteProduct(id:any){
+    let docRef = doc(this.fs, "Products",id);
+    return deleteDoc(docRef);
+  }
 
 
 

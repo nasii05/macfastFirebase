@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HeroService } from '../hero.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-form',
@@ -11,7 +12,8 @@ export class EditFormComponent {
 
   productForm:FormGroup;
 
-  constructor(private fb:FormBuilder, private hero: HeroService){
+  constructor(private fb:FormBuilder, private hero: HeroService,
+    private router:Router){
     this.productForm = this.fb.group({
       title:['', Validators.required],
       desc:['', Validators.required],
@@ -21,8 +23,12 @@ export class EditFormComponent {
 
   updateProduct(){
     const product =  this.productForm.value;
-    console.log(product);
-    this.productForm.reset();
+    let id = localStorage.getItem('doc_id')
+    this.hero.updateProduct(id, product).then((res) => {
+      console.log(res);
+      alert('data added successfully');
+      this.router.navigate(['/']);
+    })
   }
 
   ngOnInit(){
@@ -40,6 +46,8 @@ export class EditFormComponent {
        })
     })
   }
+
+
 
 
   }

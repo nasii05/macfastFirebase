@@ -19,7 +19,7 @@
         <td>{{ item.desc }}</td>
         <td>{{ item.price }}</td>
         <td><i class="bi bi-pen text-primary" (click)="editProduct(item.doc_id)"></i></td>
-        <td><i class="bi bi-trash  text-danger" (click)="deleteProduct()"></i></td>
+        <td><i class="bi bi-trash  text-danger" (click)="deleteProduct(item.doc_id)"></i></td>
       </tr>
 
     </tbody>
