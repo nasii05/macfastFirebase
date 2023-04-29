@@ -13,12 +13,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let item of products">
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td><i class="bi bi-pen text-primary" (click)="editProduct()"></i></td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.desc }}</td>
+        <td>{{ item.price }}</td>
+        <td><i class="bi bi-pen text-primary" (click)="editProduct(item.doc_id)"></i></td>
         <td><i class="bi bi-trash  text-danger" (click)="deleteProduct()"></i></td>
       </tr>
 

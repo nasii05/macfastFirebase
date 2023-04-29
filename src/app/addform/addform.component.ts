@@ -24,6 +24,7 @@ export class AddformComponent {
   addProduct(){
     const product =  this.productForm.value;
     console.log(product);
+    this.productForm.reset();
     this.hero.addProduct(product).then((res) => {
       if(res){
         console.log(res);

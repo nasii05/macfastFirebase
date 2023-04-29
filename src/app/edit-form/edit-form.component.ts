@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-edit-form',
@@ -10,7 +11,7 @@ export class EditFormComponent {
 
   productForm:FormGroup;
 
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder, private hero: HeroService){
     this.productForm = this.fb.group({
       title:['', Validators.required],
       desc:['', Validators.required],
@@ -22,6 +23,25 @@ export class EditFormComponent {
     const product =  this.productForm.value;
     console.log(product);
     this.productForm.reset();
+  }
+
+  ngOnInit(){
+    this.getDataById();
+  }
+
+  getDataById(){
+    let id = localStorage.getItem('doc_id')
+    this.hero.getProductbyId(id).then( (data:any) => {
+      console.log(data);
+       this.productForm = this.fb.group({
+        title:data.title,
+        desc:data.desc,
+        price:data.price
+       })
+    })
+  }
+
 
   }
-}
+
+
